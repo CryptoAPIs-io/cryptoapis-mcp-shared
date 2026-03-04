@@ -1,6 +1,6 @@
 import { CryptoApisError } from "../errors/index.js";
 import type { SharedConfig } from "../config/index.js";
-import { CRYPTOAPIS_VERSION } from "../config/index.js";
+import { CRYPTOAPIS_VERSION, MCP_USER_AGENT } from "../config/index.js";
 import { apiKeyStore } from "../request-context/index.js";
 
 export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -79,6 +79,8 @@ export class CryptoApisHttpClient {
                     "Content-Type": "application/json",
                     "x-api-key": apiKey,
                     "x-api-version": CRYPTOAPIS_VERSION,
+                    "User-Agent": MCP_USER_AGENT,
+                    "x-source": "mcp",
                 },
                 body: opts?.body ? JSON.stringify(opts.body) : undefined,
             });
