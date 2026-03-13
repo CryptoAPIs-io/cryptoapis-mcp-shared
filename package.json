@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-shared",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Shared HTTP client, error types, blockchain constants, and schemas for Crypto APIs MCP servers",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",

@@ -1,5 +1,11 @@
 # @cryptoapis-io/mcp-shared
 
+## 0.3.0
+
+### Minor Changes
+
+- Add MCP logging, resources, and prompts across all packages. Add debug-level tool call logging, replace console.error with McpLogger, remove .refine() from schemas for MCP client compatibility, and fix supply-chain vulnerabilities.
+
 ## 0.2.3
 
 ### Patch Changes

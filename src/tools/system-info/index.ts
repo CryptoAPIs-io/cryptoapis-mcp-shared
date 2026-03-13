@@ -38,7 +38,7 @@ Actions:
 • limits — Throughput soft/hard limits per plan, 2.1x penalty multiplier, rate limiting behavior`,
     inputSchema: SystemInfoSchema,
     handler:
-        (_client: CryptoApisHttpClient) =>
+        (_client: CryptoApisHttpClient, _logger: unknown) =>
         async (input: SystemInfoInput) => {
             return {
                 content: [{ type: "text" as const, text: JSON.stringify(ACTION_DATA[input.action]) }],

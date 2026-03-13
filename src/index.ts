@@ -9,3 +9,5 @@ export * from "./credits/index.js";
 export * from "./request-context/index.js";
 export * from "./tools/index.js";
 export * from "./confirmation/index.js";
+export * from "./logging/index.js";
+export * from "./resources/index.js";

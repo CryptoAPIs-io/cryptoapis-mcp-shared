@@ -12,7 +12,7 @@ export const CRYPTOAPIS_VERSION = "2024-12-12";
 /**
  * MCP package identifier sent as User-Agent header to identify MCP traffic.
  */
-export const MCP_USER_AGENT = "cryptoapis-mcp/0.1.2";
+export const MCP_USER_AGENT = "cryptoapis-mcp/0.3.0";
 
 export type SharedConfig = {
     baseUrl: string;
