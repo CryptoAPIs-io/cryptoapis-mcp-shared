@@ -17,6 +17,7 @@ export const blockchainsData = {
         { name: "zcash", type: "utxo", networks: ["mainnet", "testnet"] },
         { name: "xrp", type: "account", networks: ["mainnet", "testnet"] },
         { name: "solana", type: "account", networks: ["mainnet", "devnet"] },
+        { name: "tezos", type: "account", networks: ["mainnet", "shadownet"] },
         { name: "kaspa", type: "utxo", networks: ["mainnet"] },
     ],
     productAvailability: {
@@ -42,7 +43,7 @@ export const blockchainsData = {
         "blockchain-fees": {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
             utxo: ["bitcoin", "bitcoin-cash", "litecoin", "dogecoin", "dash", "zcash"],
-            other: ["xrp"],
+            other: ["xrp", "tezos", "solana"],
         },
         "blockchain-events": {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
@@ -52,7 +53,8 @@ export const blockchainsData = {
         broadcast: {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
             utxo: ["bitcoin", "bitcoin-cash", "litecoin", "dogecoin", "dash", "zcash"],
-            other: ["xrp", "solana", "kaspa"],
+            other: ["xrp", "solana", "tezos"],
+            note: "Kaspa is not broadcastable via this endpoint (absent from the spec's blockchain enum)",
         },
         contracts: {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
@@ -60,9 +62,13 @@ export const blockchainsData = {
         },
         "prepare-transactions": {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
+            utxo: ["bitcoin", "bitcoin-cash", "litecoin", "dogecoin", "dash", "zcash"],
+            other: ["tezos", "xrp", "solana", "kaspa"],
+            note: "Tron also has dedicated prepare-transactions endpoints separate from the generic EVM ones (native-coins, trc20-tokens, non-fungible-tokens)",
         },
         simulate: {
-            evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
+            evm: ["ethereum"],
+            note: "Ethereum-only (mainnet, sepolia) — the underlying endpoint has no blockchain parameter",
         },
         "hd-wallet": {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "tron"],
@@ -70,6 +76,12 @@ export const blockchainsData = {
             other: ["xrp"],
         },
         "market-data": "all (not blockchain-specific)",
+        aml: {
+            evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
+            utxo: ["bitcoin", "bitcoin-cash", "litecoin", "dogecoin", "dash", "zcash"],
+            other: ["xrp", "solana", "tezos", "kaspa"],
+            note: "verify-address has no blockchain parameter; screen-transaction requires one",
+        },
         signer: {
             evm: ["ethereum", "ethereum-classic", "binance-smart-chain", "polygon", "avalanche", "tron", "arbitrum", "base", "optimism"],
             utxo: ["bitcoin", "bitcoin-cash", "litecoin", "dogecoin", "dash", "zcash"],
@@ -100,6 +112,7 @@ export const blockchainsData = {
         zcash: { base: "ZEC", ticker: "ZEC", smallest: "Zatoshi", decimals: 8 },
         xrp: { base: "XRP", ticker: "XRP", smallest: "Drop", decimals: 6 },
         solana: { base: "SOL", ticker: "SOL", smallest: "Lamport", decimals: 9 },
+        tezos: { base: "Tezos", ticker: "XTZ", smallest: "Mutez", decimals: 6 },
         kaspa: { base: "KAS", ticker: "KAS", smallest: "Sompi", decimals: 8 },
     },
     fiatCurrencies: [

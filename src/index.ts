@@ -11,3 +11,4 @@ export * from "./tools/index.js";
 export * from "./confirmation/index.js";
 export * from "./logging/index.js";
 export * from "./resources/index.js";
+export * from "./http/index.js";
