@@ -6,6 +6,7 @@ import { errorsData } from "./data/errors.js";
 import { creditsData } from "./data/credits.js";
 import { callbacksData } from "./data/callbacks.js";
 import { limitsData } from "./data/limits.js";
+import { LOCAL_READ_ONLY_TOOL } from "../annotations.js";
 
 const ACTION_DATA: Record<string, object> = {
     blockchains: blockchainsData,
@@ -27,6 +28,8 @@ export type SystemInfoInput = z.infer<typeof SystemInfoSchema>;
 
 export const systemInfoTool = {
     name: "system_info" as const,
+    title: "CryptoAPIs reference info",
+    annotations: LOCAL_READ_ONLY_TOOL,
     credits: undefined as undefined,
     description: `CryptoAPIs reference documentation — no API call, no credits consumed.
 
